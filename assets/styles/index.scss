@@ -1,1 +1,46 @@
 @import '~bootstrap/scss/bootstrap';
+
+$border-color: #000;
+$background-color: #e4e4e4;
+$button-hover-color: #cab9e6;
+$button-clicked-color: #7345be;
+
+body {
+  background-color: $background-color;
+}
+
+.buttons {
+  display: block;
+  float: right;
+  padding: 1em;
+}
+
+h1 {
+  clear: both;
+  text-align: center;
+}
+
+.flex-grid {
+  align-content: center;
+  background-color: $background-color;
+  display: flex;
+  margin: auto;
+  width: 33%;
+}
+
+.col {
+  align-content: center;
+  border: 1px solid $border-color;
+  flex: 1;
+  padding: 40px;
+}
+
+.col:hover {
+  background-color: $button-hover-color;
+}
+
+.new-game {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
