@@ -1,47 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Tic tac toe</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>Tic tac toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<body>
 
-      <nav class="buttons">
-        <input type="submit" class="sign-up" value="Sign Up">
-        <input type="submit" class="sign-in" value="Sign In">
-        <!-- <input type="submit" class="signOut" value="Sign Out">
-        <input type="submit" class="changePassword" value="Change Password"> -->
-      </nav>
+  <!-- before login -->
+  <div id="unAuthedView">
+    <form id="sign-up" class="border">
+      <fieldset>
+        <legend> Sign up here to play tic-tac-toe</legend>
+        <input name="credentials[email]" type="text" placeholder="Email address"><br>
+        <input name="credentials[password]" type="password" placeholder="Password"><br>
+        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password"><br>
+        <input type="submit" class="sign-up" value="Sign Up"><br>
+      </fieldset>
+    </form>
 
-      <h1>Let's play tic-tac-toe!</h1>
+
+    <form id="sign-in" class="border">
+      <fieldset>
+        <legend> Sign in here if you have an account</legend>
+        <input name="credentials[email]" type="text" placeholder="Email address"><br>
+        <input name="credentials[password]" type="password" placeholder="Password"><br>
+        <input type="submit" class="sign-in" value="Sign In"><br>
+      </fieldset>
+    </form>
+  </div>
 
 
-      <div class="flex-grid">
-        <div class="col" id="1"></div>
-        <div class="col" id="2"></div>
-        <div class="col" id="3"></div>
-      </div>
-      <div class="flex-grid">
-        <div class="col" id="4"></div>
-        <div class="col" id="5"></div>
-        <div class="col" id="6"></div>
-      </div>
-      <div class="flex-grid">
-        <div class="col" id="7"></div>
-        <div class="col" id="8"></div>
-        <div class="col" id="9"></div>
-      </div>
 
-      <div class="new-game">
-        <input type="submit" value="Start a new game">
-      </div>
+  <!-- once logged in-->
+  <div id="authedView">
+    <h1>Let's play tic-tac-toe!</h1>
+    <form id="change-password" class="border">
+        <fieldset>
+          <legend> Change your password </legend>
+          <input type="password" name="passwords[old]" placeholder="Old password"><br>
+          <input type="password" name="passwords[new]" placeholder="New password"><br>
+          <input type="submit" value="Change password">
+       </fieldset>
+    </form>
 
-    </body>
+    <form id="sign-out" class="border">
+      <input type="submit" class="signOut" value="Sign Out">
+    </form>
+
+    <div class="flex-grid">
+      <div class="col" id="1"></div>
+      <div class="col" id="2"></div>
+      <div class="col" id="3"></div>
+    </div>
+    <div class="flex-grid">
+      <div class="col" id="4"></div>
+      <div class="col" id="5"></div>
+      <div class="col" id="6"></div>
+    </div>
+    <div class="flex-grid">
+      <div class="col" id="7"></div>
+      <div class="col" id="8"></div>
+      <div class="col" id="9"></div>
+    </div>
+
+    <div class="new-game">
+      <input type="submit" value="Start a new game">
+    </div>
+  </div>
+
+</body>
 </html>

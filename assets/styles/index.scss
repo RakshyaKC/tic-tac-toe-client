@@ -9,10 +9,18 @@ body {
   background-color: $background-color;
 }
 
-.buttons {
-  display: block;
-  float: right;
+.border {
+  border: 4px solid $border-color;
+  margin: 1em;
   padding: 1em;
+}
+
+#authedView {
+  display: none;
+}
+
+#unAuthedView {
+  display: block;
 }
 
 h1 {
