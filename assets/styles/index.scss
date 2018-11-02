@@ -2,8 +2,8 @@
 
 $border-color: #000;
 $background-color: #e4e4e4;
-$button-hover-color: #cab9e6;
-$button-clicked-color: #7345be;
+$button-color: #cab9e6;
+$button-hover-color: #7345be;
 
 body {
   background-color: $background-color;
@@ -30,8 +30,9 @@ h1 {
 
 .flex-grid {
   align-content: center;
-  background-color: $background-color;
+  background-color: $button-color;
   display: flex;
+  height: 90px;
   margin: auto;
   width: 33%;
 }
@@ -39,7 +40,8 @@ h1 {
 .col {
   align-content: center;
   border: 1px solid $border-color;
-  flex: 1;
+  font-size: 10px;
+  font-weight: 800;
   padding: 40px;
 }
 
@@ -47,7 +49,7 @@ h1 {
   background-color: $button-hover-color;
 }
 
-.new-game {
+#new-game {
   display: flex;
   justify-content: center;
   margin: 1em;
