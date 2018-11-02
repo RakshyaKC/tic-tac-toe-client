@@ -3,12 +3,20 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 
 // counter function counts numbers of clicks
-// Should be counting number of clicks on each individual grid...
-let count = 0
+// Should be counting number of clicks on each individual grid only once
+let uniqueCount = 0
+const count = []
 const counter = () => {
-  count++
-  console.log(count)
+  const target = event.target.id
+  if (count.indexOf(target) === -1) {
+    // if target is not present in array count, push target into it
+    count.push(target)
+    // add to number of unique clicks on the grid
+    uniqueCount++
+  }
+  console.log(uniqueCount)
 }
+console.log(count)
 
 // clickGrid is supposed to populate the board.
 // If count is odd, enter X, if count is even, enter Y
@@ -23,7 +31,6 @@ const clickedGrid = event => {
 // https://stackoverflow.com/questions/17097947/jquery-using-a-variable-as-a-selector
 
 // TODO:
-
 // for API a function to store the div values in an array called "cells" within
 // "game" object.
 
