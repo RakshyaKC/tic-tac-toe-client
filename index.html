@@ -21,7 +21,7 @@
         <input name="credentials[email]" type="text" placeholder="Email address"><br>
         <input name="credentials[password]" type="password" placeholder="Password"><br>
         <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password"><br>
-        <input type="submit" class="sign-up" value="Sign Up"><br>
+        <button class="btn btn-info">Sign Up></button>
       </fieldset>
     </form>
 
@@ -31,7 +31,7 @@
         <legend> Sign in here if you have an account</legend>
         <input name="credentials[email]" type="text" placeholder="Email address"><br>
         <input name="credentials[password]" type="password" placeholder="Password"><br>
-        <input type="submit" class="sign-in" value="Sign In"><br>
+        <button class="btn btn-info">Sign In</button>
       </fieldset>
     </form>
   </div>
@@ -46,15 +46,15 @@
           <legend> Change your password </legend>
           <input type="password" name="passwords[old]" placeholder="Old password"><br>
           <input type="password" name="passwords[new]" placeholder="New password"><br>
-          <input type="submit" value="Change password">
+          <button class="btn btn-info">Change Password</button>
        </fieldset>
     </form>
 
     <form id="sign-out" class="border">
-      <input type="submit" class="signOut" value="Sign Out">
+      <button class="btn btn-info">Sign Out</button>
     </form>
 
-    <h1>Player 's turn</h1>
+    <h1 id ="whoseTurn"></h1>
 
     <div class="flex-grid">
       <div class="col" id="1"></div>
@@ -72,20 +72,33 @@
       <div class="col" id="9"></div>
     </div>
 
-    <form id="new-game">
-      <input type="submit" value="Start a new game">
-    </form>
-    <form id="get-games">
-      <input type="submit" value="Get games">
-    </form>
     <form id="create-game">
-      <input type="submit" value="Start a new game">
+      <button type="button" class="btn btn-info">Start a new game</button>
     </form>
-    <form id="show-a-game">
-      <input type="text" name="game[id]" placeholder="Game ID"><br>
-      <input type="submit" value="Show a game">
-    </form>
+    <nav>
+      <form id="get-games">
+        <button type="button" class="btn btn-info">Get games</button>
+      </form>
+
+      <form id="show-a-game">
+        <input type="text" name="game[id]" placeholder="Game ID">
+        <button type="button" class="btn btn-info">Show a game</button>
+      </form>
+    </nav>
+
+  <!-- Modal -->
+  <div class="modal fade" id="userNotification" role="dialog">
+      <div class="modal-dialog">
+          <div class="modal-body">
+            <h2 id="winOrTie"></h2>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+    </div>
   </div>
+
 
 </body>
 </html>

@@ -1,18 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 
-$border-color: #000;
-$background-color: #e4e4e4;
+$border-color: #abbedd;
+$background-color: #abbedd;
 $button-color: #cab9e6;
 $button-hover-color: #7345be;
+$modal-color: #3ba3cc;
 
 body {
   background-color: $background-color;
 }
 
 .border {
-  border: 4px solid $border-color;
-  margin: 1em;
-  padding: 1em;
+  padding: 2em;
 }
 
 #authedView {
@@ -49,8 +48,23 @@ h1 {
   background-color: $button-hover-color;
 }
 
-#new-game {
+#create-game {
   display: flex;
   justify-content: center;
   margin: 1em;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+}
+
+.modal-dialog {
+  background-color: $modal-color;
+  margin: 15% auto;
+  // 15% from the top and centered
+  padding: 20px;
+  width: 50%;
+  // Could be more or less, depending on screen size
 }

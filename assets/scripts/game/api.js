@@ -2,11 +2,13 @@
 const config = require('../config.js')
 const store = require('../store.js')
 // get games
+
 const getGames = () => {
+  console.log(store.user)
   return $.ajax({
-    url: config.apiUrl + `/games`,
+    url: config.apiUrl + `games`,
     method: 'GET',
-    header: {
+    headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: {}
@@ -17,20 +19,20 @@ const getGames = () => {
 // POST 401 unauthorized error
 const createGame = () => {
   return $.ajax({
-    url: config.apiUrl + `/games`,
+    url: config.apiUrl + `games`,
     method: 'POST',
-    header: {
+    headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {}
+    data: '{}'
   })
 }
 
-const showAGame = () => {
+const showAGame = (id) => {
   return $.ajax({
-  //  url: config.apiUrl + `/games/:${id}`,
+    url: config.apiUrl + `/games/:${id}`,
     method: 'POST',
-    header: {
+    headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })

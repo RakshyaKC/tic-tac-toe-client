@@ -1,8 +1,8 @@
 'user strict'
 const store = require('../store.js')
 
-const getGamesSuccess = () => {
-  console.log('getGamesSuccess ran.')
+const getGamesSuccess = game => {
+  console.log('getGamesSuccess ran. Game is: ', game)
 }
 
 const getGamesFailure = error => {
@@ -16,8 +16,8 @@ const createGameSuccess = game => {
 const createGameFailure = error => {
   console.log('createGameFailure ran. Error is: ', error)
 }
-const showAGameSuccess = () => {
-  console.log('showAGameSuccess ran.')
+const showAGameSuccess = game => {
+  console.log('showAGameSuccess ran. Game is: ', game)
 }
 
 const showAGameFailure = error => {

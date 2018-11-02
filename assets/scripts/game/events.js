@@ -14,7 +14,7 @@ const counter = () => {
     // add to number of unique clicks on the grid
     uniqueCount++
   }
-  console.log(uniqueCount)
+//  console.log(uniqueCount)
 }
 
 // clickGrid populates the board with each click
@@ -32,12 +32,14 @@ const clickedGrid = event => {
   // console.log(targetId) is the same as console.log(event.target.id)
   // If count is odd, enter X, if count is even, enter Y
   if (uniqueCount % 2 === 0) {
+    $('#whoseTurn').html(`Player O's turn`)
     $('#' + targetId).html('X')
     // use splice to insert x and o's at the indices of event.target.id
     cells.splice(targetIndex, 1, 'X')
     // turn off the button
     $('#' + targetId).off('click')
   } else if (uniqueCount % 2 === 1) {
+    $('#whoseTurn').html(`Player X's turn`)
     $('#' + targetId).html('O')
     cells.splice(targetIndex, 1, 'O')
     // https://stackoverflow.com/questions/17097947/jquery-using-a-variable-as-a-selector
@@ -45,67 +47,55 @@ const clickedGrid = event => {
   } else {
     console.log('MAYDAY MAYDAY')
   }
-  console.log(cells)
+//  console.log(cells)
 }
 
 const determineWinner = () => {
   const xWins = () => {
+    $('#winOrTie').html('Player X wins!')
+    $('#userNotification').modal('show')
     $('.col').off('click')
   }
   const oWins = () => {
+    $('#winOrTie').html('Player O wins!')
+    $('#userNotification').modal('show')
     $('.col').off('click')
   }
   if (uniqueCount >= 5) {
     if ((cells[0] === 'X') && (cells[1] === 'X') && (cells[2] === 'X')) {
       xWins()
-      console.log('Player X wins!')
     } else if ((cells[3] === 'X') && (cells[4] === 'X') && (cells[5] === 'X')) {
       xWins()
-      console.log('Player X wins!')
     } else if ((cells[6] === 'X') && (cells[7] === 'X') && (cells[8] === 'X')) {
       xWins()
-      console.log('Player X wins!')
     } else if ((cells[0] === 'X') && (cells[3] === 'X') && (cells[6] === 'X')) {
       xWins()
-      console.log('Player X wins!')
     } else if ((cells[1] === 'X') && (cells[4] === 'X') && (cells[7] === 'X')) {
       xWins()
-      console.log('Player X wins!')
     } else if ((cells[2] === 'X') && (cells[5] === 'X') && (cells[8] === 'X')) {
       xWins()
-      console.log('Player X wins!')
     } else if ((cells[0] === 'X') && (cells[4] === 'X') && (cells[8] === 'X')) {
       xWins()
-      console.log('Player X wins!')
     } else if ((cells[2] === 'X') && (cells[4] === 'X') && (cells[6] === 'X')) {
       xWins()
-      console.log('Player X wins!')
     } else if ((cells[0] === 'O') && (cells[1] === 'O') && (cells[2] === 'O')) {
       oWins()
-      console.log('Player O wins!')
     } else if ((cells[3] === 'O') && (cells[4] === 'O') && (cells[5] === 'O')) {
       oWins()
-      console.log('Player O wins!')
     } else if ((cells[6] === 'O') && (cells[7] === 'O') && (cells[8] === 'O')) {
       oWins()
-      console.log('Player O wins!')
     } else if ((cells[0] === 'O') && (cells[3] === 'O') && (cells[6] === 'O')) {
       oWins()
-      console.log('Player O wins!')
     } else if ((cells[1] === 'O') && (cells[4] === 'O') && (cells[7] === 'O')) {
       oWins()
-      console.log('Player O wins!')
     } else if ((cells[2] === 'O') && (cells[5] === 'O') && (cells[8] === 'O')) {
       oWins()
-      console.log('Player O wins!')
     } else if ((cells[0] === 'O') && (cells[4] === 'O') && (cells[8] === 'O')) {
       oWins()
-      console.log('Player O wins!')
     } else if ((cells[2] === 'O') && (cells[4] === 'O') && (cells[6] === 'O')) {
       oWins()
-      console.log('Player O wins!')
     }
-  } else if (uniqueCount > 8) {
+  } else if (uniqueCount === 9) {
     console.log('This game is a tie')
   }
 }
@@ -137,7 +127,7 @@ const onShowAGame = event => {
 // *for API a function to store the div values in an array called "cells" within
 // "game" object.
 // Nice to have
-// <h1> element updates with whose turn it is. Function would find the number of x and o.
+// <h1> element with ID "whoseTurn" updates with whose turn it is. Function would find the number of x and o.
 // if num(x)> num(O), player {$X/O}'s turn
 
 module.exports = {
