@@ -35,7 +35,7 @@ https://git.generalassemb.ly/ga-wdi-boston/browser-template
 *** App.js for sign up and sign in authorizations
 *** Once signed in, the gameboard is active
 *** First click on the grid makes a 'X' appear
-*** Count number of clicks on the game board
+*** Count number of unique clicks on the game board
 * Second click makes 'O' appear
 * Count numbers of X and O's
 * If X > O, say Player O's turn on top of the game board
@@ -77,16 +77,18 @@ https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide
 
 # Future features
 
-# Reference materials
-https://css-tricks.com/dont-overthink-flexbox-grids/
-
-
 # Additional resources
 https://git.generalassemb.ly/ga-wdi-boston/game-project
 
+# Reference materials used
+https://css-tricks.com/dont-overthink-flexbox-grids/
+https://stackoverflow.com/questions/17097947/jquery-using-a-variable-as-a-selector
+
+
+
+
 // Questions
-1. events.js in a new folder game isn't being accessed through app.js'
-click handler. Is my file structure sound?
+
 2. API questions - how should my game be stored in the API? How can I make sure a game creates a new ID?
 3. What does it mean to fetch all user's games? To show in console? To create an object with details of games played or is it supposed to be on screen?!
 4. Where do I create player-x? Or do I set it up somewhere after a sign in success?

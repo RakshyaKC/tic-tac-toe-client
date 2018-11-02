@@ -18,21 +18,39 @@ const counter = () => {
 }
 console.log(count)
 
-// clickGrid is supposed to populate the board.
+// clickGrid populates the board with each click
 // If count is odd, enter X, if count is even, enter Y
+const cells = []
 const clickedGrid = event => {
   event.preventDefault()
   console.log(event.target.id)
   const target = event.target.id
   const targetId = target.replace(/click/gi, 'section')
-  $('#' + targetId).html('X')
+  // console.log(targetId) is the same as console.log(event.target.id)
+  console.log(uniqueCount)
+  // maybe use splice to insert x and o's at the indices of event.target.id?
+  if (uniqueCount % 2 === 0) {
+    $('#' + targetId).html('X')
+    cells.splice(target, 0, 'X')
+  } else if (uniqueCount % 2 === 1) {
+    $('#' + targetId).html('O')
+    cells.splice(target, 0, 'O')
+    // https://stackoverflow.com/questions/17097947/jquery-using-a-variable-as-a-selector
+  } else {
+    console.log('MAYDAY MAYDAY')
+  }
+  console.log(cells)
 }
-// Reference used
-// https://stackoverflow.com/questions/17097947/jquery-using-a-variable-as-a-selector
 
-// TODO:
-// for API a function to store the div values in an array called "cells" within
-// "game" object.
+// Determining the winner
+// Winning if below id's have the same string value (X or O)
+// horizontal [1,2,3; 4,5,6; 7,8,9;]
+// vertical [1,4,7; 2,5,8; 3,6,9]
+// diagonals [1,5,9; 3,5,7]
+const determineWinner = () => {
+  if (uniqueCount >= 5) {
+  }
+}
 
 // function to reset the game and start a new game with new id
 const onStartNewGame = event => {
@@ -43,6 +61,9 @@ const onStartNewGame = event => {
     .catch(ui.startNewGameFailure)
 }
 
+// TODO:
+// *for API a function to store the div values in an array called "cells" within
+// "game" object.
 // Nice to have
 // <h1> element updates with whose turn it is. Function would find the number of x and o.
 // if num(x)> num(O), player {$X/O}'s turn
@@ -50,5 +71,6 @@ const onStartNewGame = event => {
 module.exports = {
   counter,
   clickedGrid,
+  determineWinner,
   onStartNewGame
 }
