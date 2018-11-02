@@ -15,26 +15,30 @@ const counter = () => {
     uniqueCount++
   }
   console.log(uniqueCount)
+  console.log(count)
 }
-console.log(count)
 
 // clickGrid populates the board with each click
-// If count is odd, enter X, if count is even, enter Y
-const cells = []
+// create a null array of length 9. Tried creating an empty array but splice
+// doesn't populate x and o in the right indices if those indices don't a;ready exist within the array.
+const cells = ['', '', '', '', '', '', '', '', '']
 const clickedGrid = event => {
   event.preventDefault()
-  console.log(event.target.id)
+  // console.log(event.target.id)
   const target = event.target.id
+  // indices start at 0 so we need a constant that is target - 1 to
+  // populate x & o in the right indices
+  const targetIndex = target - 1
   const targetId = target.replace(/click/gi, 'section')
   // console.log(targetId) is the same as console.log(event.target.id)
-  console.log(uniqueCount)
-  // maybe use splice to insert x and o's at the indices of event.target.id?
+  // If count is odd, enter X, if count is even, enter Y
   if (uniqueCount % 2 === 0) {
     $('#' + targetId).html('X')
-    cells.splice(target, 0, 'X')
+    // use splice to insert x and o's at the indices of event.target.id?
+    cells.splice(targetIndex, 1, 'X')
   } else if (uniqueCount % 2 === 1) {
     $('#' + targetId).html('O')
-    cells.splice(target, 0, 'O')
+    cells.splice(targetIndex, 1, 'O')
     // https://stackoverflow.com/questions/17097947/jquery-using-a-variable-as-a-selector
   } else {
     console.log('MAYDAY MAYDAY')

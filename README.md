@@ -24,6 +24,7 @@ Game logic recognizes a tie and win. It keeps tally  of the game win/loss.
 
 Nice to have
 * User will be able to see if its Player 1 or Player 2's turn.
+* Bootstrap modals
 
 # Wireframe
 https://docs.google.com/drawings/d/1mkOMtTo0fu8JDFUIXQL2jdfoaANPHTarb9ZFxLfTZik/edit
