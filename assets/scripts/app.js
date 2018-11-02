@@ -14,4 +14,5 @@ $(() => {
   // event listeners for each grid being clicked
   $('.col').on('click', gameEvents.clickedGrid)
   $('.col').on('click', gameEvents.counter)
+  $('.col').on('click', gameEvents.determineWinner)
 })

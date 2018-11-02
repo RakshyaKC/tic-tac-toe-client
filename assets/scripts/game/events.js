@@ -48,12 +48,30 @@ const clickedGrid = event => {
 
 // Determining the winner
 // Winning if below id's have the same string value (X or O)
-// horizontal [1,2,3; 4,5,6; 7,8,9;]
-// vertical [1,4,7; 2,5,8; 3,6,9]
-// diagonals [1,5,9; 3,5,7]
+// horizontal [0,1,2; 3,4,5; 6,7,8;]
+// vertical [0,3,6; 1,4,7; 2,5,8]
+// diagonals [2,4,6; 0,4,8]
 const determineWinner = () => {
   if (uniqueCount >= 5) {
+    if ((cells[0] && cells[1] && cells[2]) === 'X' || 'O') {
+      console.log('You win')
+    } else if ((cells[3] && cells[4] && cells[5]) === 'X' || 'O') {
+      console.log('You win')
+    } else if ((cells[6] && cells[7] && cells[8]) === 'X' || 'O') {
+      console.log('You win')
+    } else if ((cells[0] && cells[3] && cells[6]) === 'X' || 'O') {
+      console.log('You win')
+    } else if ((cells[1] && cells[4] && cells[7]) === 'X' || 'O') {
+      console.log('You win')
+    } else if ((cells[2] && cells[5] && cells[8]) === 'X' || 'O') {
+      console.log('You win')
+    } else if ((cells[2] && cells[4] && cells[6]) === 'X' || 'O') {
+      console.log('You win')
+    } else if ((cells[0] && cells[4] && cells[8]) === 'X' || 'O') {
+      console.log('You win')
+    }
   }
+  //
 }
 
 // function to reset the game and start a new game with new id

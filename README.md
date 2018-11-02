@@ -16,7 +16,7 @@ Game logic recognizes a tie and win. It keeps tally  of the game win/loss.
 * If logged in, user should be able to start a new game.
 * User should be able to input their X or O into the 3x3 grid.
 * A clicked grid may not be clicked in that same game.
-* The inputs should alternate between X and O.
+*** The inputs should alternate between X and O.
 * Game logic will notify if a player has won.
 * Game logic will notify if the game is a tie.
 * User will not be able to click the grid once game is won.
