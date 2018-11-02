@@ -13,14 +13,14 @@ Game logic recognizes a tie and win. It keeps tally  of the game win/loss.
 *** Create an authorized view.
 *** Create an unauthorized view.
 *** The first input will be a X.
-* If logged in, user should be able to start a new game.
-* User should be able to input their X or O into the 3x3 grid.
-* A clicked grid may not be clicked in that same game.
+*** User should be able to input their X or O into the 3x3 grid.
+*** A clicked grid may not be clicked in that same game.
 *** The inputs should alternate between X and O.
+*** User will not be able to click the grid once game is won.
+* User can refer to tally bar to see number of X wins and number of O wins.
+* If logged in, user should be able to start a new game.
 * Game logic will notify if a player has won.
 * Game logic will notify if the game is a tie.
-* User will not be able to click the grid once game is won.
-* User can refer to tally bar to see number of X wins and number of O wins.
 
 Nice to have
 * User will be able to see if its Player 1 or Player 2's turn.

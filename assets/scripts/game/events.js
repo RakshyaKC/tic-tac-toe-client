@@ -10,12 +10,11 @@ const counter = () => {
   const target = event.target.id
   if (count.indexOf(target) === -1) {
     // if target is not present in array count, push target into it
-    count.push(target)
+    // count.push(target)
     // add to number of unique clicks on the grid
     uniqueCount++
   }
   console.log(uniqueCount)
-  console.log(count)
 }
 
 // clickGrid populates the board with each click
@@ -34,45 +33,91 @@ const clickedGrid = event => {
   // If count is odd, enter X, if count is even, enter Y
   if (uniqueCount % 2 === 0) {
     $('#' + targetId).html('X')
-    // use splice to insert x and o's at the indices of event.target.id?
+    // use splice to insert x and o's at the indices of event.target.id
     cells.splice(targetIndex, 1, 'X')
+    // turn off the button
+    $('#' + targetId).off('click')
   } else if (uniqueCount % 2 === 1) {
     $('#' + targetId).html('O')
     cells.splice(targetIndex, 1, 'O')
     // https://stackoverflow.com/questions/17097947/jquery-using-a-variable-as-a-selector
+    $('#' + targetId).off('click')
   } else {
     console.log('MAYDAY MAYDAY')
   }
   console.log(cells)
 }
 
-// Determining the winner
-// Winning if below id's have the same string value (X or O)
-// horizontal [0,1,2; 3,4,5; 6,7,8;]
-// vertical [0,3,6; 1,4,7; 2,5,8]
-// diagonals [2,4,6; 0,4,8]
 const determineWinner = () => {
   if (uniqueCount >= 5) {
-    if ((cells[0] && cells[1] && cells[2]) === 'X' || 'O') {
-      console.log('You win')
-    } else if ((cells[3] && cells[4] && cells[5]) === 'X' || 'O') {
-      console.log('You win')
-    } else if ((cells[6] && cells[7] && cells[8]) === 'X' || 'O') {
-      console.log('You win')
-    } else if ((cells[0] && cells[3] && cells[6]) === 'X' || 'O') {
-      console.log('You win')
-    } else if ((cells[1] && cells[4] && cells[7]) === 'X' || 'O') {
-      console.log('You win')
-    } else if ((cells[2] && cells[5] && cells[8]) === 'X' || 'O') {
-      console.log('You win')
-    } else if ((cells[2] && cells[4] && cells[6]) === 'X' || 'O') {
-      console.log('You win')
-    } else if ((cells[0] && cells[4] && cells[8]) === 'X' || 'O') {
-      console.log('You win')
+    if (cells[0] && cells[1] && cells[2] === 'X') {
+      console.log('Player X wins!')
+      // turn off game board once a winner is determined
+      $('.col').off('click')
+    } else if (cells[3] && cells[4] && cells[5] === 'X') {
+      console.log('Player X wins!')
+      $('.col').off('click')
+    } else if (cells[6] && cells[7] && cells[8] === 'X') {
+      console.log('Player X wins!')
+      $('.col').off('click')
+    } else if (cells[0] && cells[3] && cells[6] === 'X') {
+      console.log('Player X wins!')
+      $('.col').off('click')
+    } else if (cells[1] && cells[4] && cells[7] === 'X') {
+      console.log('Player X wins!')
+      $('.col').off('click')
+    } else if (cells[2] && cells[5] && cells[8] === 'X') {
+      console.log('Player X wins!')
+      $('.col').off('click')
+    } else if (cells[2] && cells[4] && cells[6] === 'X') {
+      console.log('Player X wins!')
+      $('.col').off('click')
+    } else if (cells[0] && cells[4] && cells[8] === 'X') {
+      console.log('Player X wins!')
+      $('.col').off('click')
+    } else if (cells[0] && cells[1] && cells[2] === 'O') {
+      console.log('Player O wins!')
+      $('.col').off('click')
+    } else if (cells[3] && cells[4] && cells[5] === 'O') {
+      console.log('Player O wins!')
+      $('.col').off('click')
+    } else if (cells[6] && cells[7] && cells[8] === 'O') {
+      console.log('Player O wins!')
+      $('.col').off('click')
+    } else if (cells[0] && cells[3] && cells[6] === 'O') {
+      console.log('Player O wins!')
+      $('.col').off('click')
+    } else if (cells[1] && cells[4] && cells[7] === 'O') {
+      console.log('Player O wins!')
+      $('.col').off('click')
+    } else if (cells[2] && cells[5] && cells[8] === 'O') {
+      console.log('Player O wins!')
+      $('.col').off('click')
+    } else if (cells[2] && cells[4] && cells[6] === 'O') {
+      console.log('Player O wins!')
+      $('.col').off('click')
+    } else if (cells[0] && cells[4] && cells[8] === 'O') {
+      console.log('Player O wins!')
+      $('.col').off('click')
     }
+  } else if (uniqueCount > 8) {
+    console.log('This game is a tie')
   }
-  //
 }
+
+// Try to make this conditional chain work if there is time. It would make code DRY
+// const determineWinner = () => {
+//   if (uniqueCount >= 5) {
+//      (cells[0] && cells[1] && cells[2] === 'X') ? (console.log('Player X wins'))
+//      : (cells[3] && cells[4] && cells[5] === 'X') ? (console.log('Player X wins'))
+//      : (cells[6] && cells[7] && cells[8] === 'X') ? (console.log('Player X wins'))
+//      : (cells[0] && cells[3] && cells[6] === 'X') ? (console.log('Player X wins'))
+//      : (cells[1] && cells[4] && cells[7] === 'X') ? (console.log('Player X wins'))
+//      : (cells[2] && cells[5] && cells[8] === 'X') ? (console.log('Player X wins'))
+//      : (cells[2] && cells[4] && cells[6] === 'X') ? (console.log('Player X wins'))
+//      : (cells[0] && cells[4] && cells[8] === 'X') ? (console.log('Player X wins'))
+//   }
+// }
 
 // function to reset the game and start a new game with new id
 const onStartNewGame = event => {
