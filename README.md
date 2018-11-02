@@ -37,12 +37,12 @@ https://git.generalassemb.ly/ga-wdi-boston/browser-template
 *** Once signed in, the gameboard is active
 *** First click on the grid makes a 'X' appear
 *** Count number of unique clicks on the game board
-* Second click makes 'O' appear
+*** Second click makes 'O' appear
+*** If numbers of grids with strings >= 5, run a function to check for winner
+
 * Count numbers of X and O's
 * If X > O, say Player O's turn on top of the game board
 * If O > X, say Player X's turn on top of the game board
-* If numbers of grids with strings >= 5, run a function to check for winner
-*
 
 Winning if below id's have the same string value (X or O)
 horizontal [1,2,3; 4,5,6; 7,8,9;]

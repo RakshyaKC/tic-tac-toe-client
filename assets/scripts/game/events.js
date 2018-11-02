@@ -10,7 +10,7 @@ const counter = () => {
   const target = event.target.id
   if (count.indexOf(target) === -1) {
     // if target is not present in array count, push target into it
-    // count.push(target)
+    count.push(target)
     // add to number of unique clicks on the grid
     uniqueCount++
   }
@@ -49,83 +49,88 @@ const clickedGrid = event => {
 }
 
 const determineWinner = () => {
+  const xWins = () => {
+    $('.col').off('click')
+  }
+  const oWins = () => {
+    $('.col').off('click')
+  }
   if (uniqueCount >= 5) {
-    if (cells[0] && cells[1] && cells[2] === 'X') {
+    if ((cells[0] === 'X') && (cells[1] === 'X') && (cells[2] === 'X')) {
+      xWins()
       console.log('Player X wins!')
-      // turn off game board once a winner is determined
-      $('.col').off('click')
-    } else if (cells[3] && cells[4] && cells[5] === 'X') {
+    } else if ((cells[3] === 'X') && (cells[4] === 'X') && (cells[5] === 'X')) {
+      xWins()
       console.log('Player X wins!')
-      $('.col').off('click')
-    } else if (cells[6] && cells[7] && cells[8] === 'X') {
+    } else if ((cells[6] === 'X') && (cells[7] === 'X') && (cells[8] === 'X')) {
+      xWins()
       console.log('Player X wins!')
-      $('.col').off('click')
-    } else if (cells[0] && cells[3] && cells[6] === 'X') {
+    } else if ((cells[0] === 'X') && (cells[3] === 'X') && (cells[6] === 'X')) {
+      xWins()
       console.log('Player X wins!')
-      $('.col').off('click')
-    } else if (cells[1] && cells[4] && cells[7] === 'X') {
+    } else if ((cells[1] === 'X') && (cells[4] === 'X') && (cells[7] === 'X')) {
+      xWins()
       console.log('Player X wins!')
-      $('.col').off('click')
-    } else if (cells[2] && cells[5] && cells[8] === 'X') {
+    } else if ((cells[2] === 'X') && (cells[5] === 'X') && (cells[8] === 'X')) {
+      xWins()
       console.log('Player X wins!')
-      $('.col').off('click')
-    } else if (cells[2] && cells[4] && cells[6] === 'X') {
+    } else if ((cells[0] === 'X') && (cells[4] === 'X') && (cells[8] === 'X')) {
+      xWins()
       console.log('Player X wins!')
-      $('.col').off('click')
-    } else if (cells[0] && cells[4] && cells[8] === 'X') {
+    } else if ((cells[2] === 'X') && (cells[4] === 'X') && (cells[6] === 'X')) {
+      xWins()
       console.log('Player X wins!')
-      $('.col').off('click')
-    } else if (cells[0] && cells[1] && cells[2] === 'O') {
+    } else if ((cells[0] === 'O') && (cells[1] === 'O') && (cells[2] === 'O')) {
+      oWins()
       console.log('Player O wins!')
-      $('.col').off('click')
-    } else if (cells[3] && cells[4] && cells[5] === 'O') {
+    } else if ((cells[3] === 'O') && (cells[4] === 'O') && (cells[5] === 'O')) {
+      oWins()
       console.log('Player O wins!')
-      $('.col').off('click')
-    } else if (cells[6] && cells[7] && cells[8] === 'O') {
+    } else if ((cells[6] === 'O') && (cells[7] === 'O') && (cells[8] === 'O')) {
+      oWins()
       console.log('Player O wins!')
-      $('.col').off('click')
-    } else if (cells[0] && cells[3] && cells[6] === 'O') {
+    } else if ((cells[0] === 'O') && (cells[3] === 'O') && (cells[6] === 'O')) {
+      oWins()
       console.log('Player O wins!')
-      $('.col').off('click')
-    } else if (cells[1] && cells[4] && cells[7] === 'O') {
+    } else if ((cells[1] === 'O') && (cells[4] === 'O') && (cells[7] === 'O')) {
+      oWins()
       console.log('Player O wins!')
-      $('.col').off('click')
-    } else if (cells[2] && cells[5] && cells[8] === 'O') {
+    } else if ((cells[2] === 'O') && (cells[5] === 'O') && (cells[8] === 'O')) {
+      oWins()
       console.log('Player O wins!')
-      $('.col').off('click')
-    } else if (cells[2] && cells[4] && cells[6] === 'O') {
+    } else if ((cells[0] === 'O') && (cells[4] === 'O') && (cells[8] === 'O')) {
+      oWins()
       console.log('Player O wins!')
-      $('.col').off('click')
-    } else if (cells[0] && cells[4] && cells[8] === 'O') {
+    } else if ((cells[2] === 'O') && (cells[4] === 'O') && (cells[6] === 'O')) {
+      oWins()
       console.log('Player O wins!')
-      $('.col').off('click')
     }
   } else if (uniqueCount > 8) {
     console.log('This game is a tie')
   }
 }
 
-// Try to make this conditional chain work if there is time. It would make code DRY
-// const determineWinner = () => {
-//   if (uniqueCount >= 5) {
-//      (cells[0] && cells[1] && cells[2] === 'X') ? (console.log('Player X wins'))
-//      : (cells[3] && cells[4] && cells[5] === 'X') ? (console.log('Player X wins'))
-//      : (cells[6] && cells[7] && cells[8] === 'X') ? (console.log('Player X wins'))
-//      : (cells[0] && cells[3] && cells[6] === 'X') ? (console.log('Player X wins'))
-//      : (cells[1] && cells[4] && cells[7] === 'X') ? (console.log('Player X wins'))
-//      : (cells[2] && cells[5] && cells[8] === 'X') ? (console.log('Player X wins'))
-//      : (cells[2] && cells[4] && cells[6] === 'X') ? (console.log('Player X wins'))
-//      : (cells[0] && cells[4] && cells[8] === 'X') ? (console.log('Player X wins'))
-//   }
-// }
+const onGetGames = event => {
+  event.preventDefault()
+  api.getGames()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFailure)
+}
 
 // function to reset the game and start a new game with new id
-const onStartNewGame = event => {
+const onCreateGame = event => {
   event.preventDefault()
   // document.getElementById('new-game').val('I was clicked')
-  api.startNewGame()
+  api.createGame()
     .then(ui.startNewGameSuccess)
     .catch(ui.startNewGameFailure)
+}
+
+const onShowAGame = event => {
+  event.preventDefault()
+  api.showAGame()
+    .then(ui.showAGameSuccess)
+    .catch(ui.showAGameFailure)
 }
 
 // TODO:
@@ -139,5 +144,7 @@ module.exports = {
   counter,
   clickedGrid,
   determineWinner,
-  onStartNewGame
+  onGetGames,
+  onCreateGame,
+  onShowAGame
 }

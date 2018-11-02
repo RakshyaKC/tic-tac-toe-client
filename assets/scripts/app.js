@@ -10,9 +10,12 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   // Game engine logic below here. Authorization above works so far
-  $('#new-game').on('submit', gameEvents.onStartNewGame)
+  $('#new-game').on('submit', gameEvents.onCreateGame)
   // event listeners for each grid being clicked
   $('.col').on('click', gameEvents.clickedGrid)
   $('.col').on('click', gameEvents.counter)
   $('.col').on('click', gameEvents.determineWinner)
+  $('#get-games').on('submit', gameEvents.onGetGames)
+  $('#create-game').on('submit', gameEvents.onCreateGame)
+  $('#show-a-game').on('submit', gameEvents.onShowAGame)
 })

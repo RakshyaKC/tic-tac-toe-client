@@ -1,5 +1,5 @@
 'use strict'
-
+// already using correct urls
 let apiUrl
 const apiUrls = {
   development: 'https://tic-tac-toe-wdi.herokuapp.com/',
