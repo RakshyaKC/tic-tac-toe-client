@@ -27,12 +27,14 @@ const getGames = () => {
   })
 }
 
-const showAGame = ID => {
+const showAGame = () => {
+  const id = $('#show-game-id').val()
+  console.log(id)
   // input is id. html text id is "show-a-game"
   return $.ajax({
-    url: config.apiUrl + `/games/:${ID}`,
+    url: config.apiUrl + `games/${id}`,
     //
-    method: 'POST',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
