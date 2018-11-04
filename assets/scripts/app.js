@@ -12,9 +12,9 @@ $(() => {
   // Game engine logic below here. Authorization above works so far
   $('#new-game').on('submit', gameEvents.onCreateGame)
   // event listeners for each grid being clicked
-  $('.col').on('click', gameEvents.clickedGrid)
-  $('.col').on('click', gameEvents.counter)
-  $('.col').on('click', gameEvents.determineWinner)
+  // $('.col').on('click', gameEvents.clickedGrid)
+  // $('.col').on('click', gameEvents.counter)
+  // $('.col').on('click', gameEvents.determineWinner)
   $('#get-games').on('click', gameEvents.onGetGames)
   $('#create-game').on('click', gameEvents.onCreateGame)
   $('#show-a-game').on('click', gameEvents.onShowAGame)
