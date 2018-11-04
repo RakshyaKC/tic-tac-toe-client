@@ -1,6 +1,21 @@
 'use strict'
 const api = require('./api.js')
 const ui = require('./ui.js')
+const store = require('../store.js')
+
+const game = store.game
+// function to start the game and start a new game with new id
+const onCreateGame = event => {
+  event.preventDefault()
+  // document.getElementById('new-game').val('I was clicked')
+  $('.col').html('')
+  // emptying the value of all .col divs
+  $('.col').on('click', clickedGrid)
+  // calling function clickedGrid when the gameboard is clicked
+  api.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+}
 
 // counter function counts numbers of clicks
 // Should be counting number of clicks on each individual grid only once
@@ -16,13 +31,13 @@ const counter = () => {
   }
 //  console.log(uniqueCount)
 }
-
 // clickGrid populates the board with each click
 // create a null array of length 9. Tried creating an empty array but splice
-// doesn't populate x and o in the right indices if those indices don't a;ready exist within the array.
-const cells = ['', '', '', '', '', '', '', '', '']
+// doesn't populate x and o in the right indices if those indices don't already
+// exist within the array
+let cells = ['', '', '', '', '', '', '', '', '']
 const clickedGrid = event => {
-  event.preventDefault()
+  // event.preventDefault()
   // console.log(event.target.id)
   const target = event.target.id
   // indices start at 0 so we need a constant that is target - 1 to
@@ -47,20 +62,30 @@ const clickedGrid = event => {
   } else {
     console.log('MAYDAY MAYDAY')
   }
-//  console.log(cells)
+  console.log(cells)
+  // cells = store.game.cells
+  console.log(game)
+  // game.cells = cells
+}
+
+const xWins = () => {
+  $('#winOrTie').html('Player X wins!')
+  $('#userNotification').modal('show')
+  $('.col').off('click')
+}
+const oWins = () => {
+  $('#winOrTie').html('Player O wins!')
+  $('#userNotification').modal('show')
+  $('.col').off('click')
+}
+
+const isTie = () => {
+  $('#winOrTie').html('This game is a tie. Play again!')
+  $('#userNotification').modal('show')
+  $('.col').off('click')
 }
 
 const determineWinner = () => {
-  const xWins = () => {
-    $('#winOrTie').html('Player X wins!')
-    $('#userNotification').modal('show')
-    $('.col').off('click')
-  }
-  const oWins = () => {
-    $('#winOrTie').html('Player O wins!')
-    $('#userNotification').modal('show')
-    $('.col').off('click')
-  }
   if (uniqueCount >= 5) {
     if ((cells[0] === 'X') && (cells[1] === 'X') && (cells[2] === 'X')) {
       xWins()
@@ -94,9 +119,9 @@ const determineWinner = () => {
       oWins()
     } else if ((cells[2] === 'O') && (cells[4] === 'O') && (cells[6] === 'O')) {
       oWins()
+    } else if (uniqueCount === 9) {
+      isTie()
     }
-  } else if (uniqueCount === 9) {
-    console.log('This game is a tie')
   }
 }
 
@@ -105,15 +130,6 @@ const onGetGames = event => {
   api.getGames()
     .then(ui.getGamesSuccess)
     .catch(ui.getGamesFailure)
-}
-
-// function to reset the game and start a new game with new id
-const onCreateGame = event => {
-  event.preventDefault()
-  // document.getElementById('new-game').val('I was clicked')
-  api.createGame()
-    .then(ui.startNewGameSuccess)
-    .catch(ui.startNewGameFailure)
 }
 
 const onShowAGame = event => {

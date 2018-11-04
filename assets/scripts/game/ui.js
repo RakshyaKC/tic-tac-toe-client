@@ -8,10 +8,10 @@ const getGamesSuccess = game => {
 const getGamesFailure = error => {
   console.log('getGamesFailure ran. Error is: ', error)
 }
-const createGameSuccess = game => {
-  console.log('createGameSuccess ran. Game is: ', game)
+const createGameSuccess = response => {
+  store.game = response.game
   // put the game object in store
-  store.game = game
+  console.log('createGameSuccess ran. Game is: ', response.game)
 }
 const createGameFailure = error => {
   console.log('createGameFailure ran. Error is: ', error)

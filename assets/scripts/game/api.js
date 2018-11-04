@@ -3,6 +3,18 @@ const config = require('../config.js')
 const store = require('../store.js')
 // get games
 
+// create a new game
+const createGame = () => {
+  return $.ajax({
+    url: config.apiUrl + `games`,
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: '{}'
+  })
+}
+
 const getGames = () => {
   console.log(store.user)
   return $.ajax({
@@ -15,26 +27,19 @@ const getGames = () => {
   })
 }
 
-// create a new game
-// POST 401 unauthorized error
-const createGame = () => {
+
+
+const showAGame = ID => {
+  // input is id. html text id is "show-a-game"
   return $.ajax({
-    url: config.apiUrl + `games`,
+    url: config.apiUrl + `/games/:${ID}`,
+    //
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: '{}'
-  })
-}
-
-const showAGame = (id) => {
-  return $.ajax({
-    url: config.apiUrl + `/games/:${id}`,
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
+    // would it help to set data.id =  .show-a-game.html()
   })
 }
 module.exports = {

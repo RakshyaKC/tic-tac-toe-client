@@ -47,6 +47,7 @@ const changePasswordFailure = error => {
 
 const signOutSuccess = () => {
   console.log('signOutSuccess ran.')
+  store.user.token = []
   showUnAuthedView()
   hideAuthedView()
 }
