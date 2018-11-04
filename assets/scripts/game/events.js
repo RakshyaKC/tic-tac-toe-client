@@ -17,7 +17,9 @@ const onCreateGame = event => {
       // reinitialize uniqueCount. It was stuck at the winning uniqueCount
       // without this part.
       $('.col').on('click', counter)
+      $('.col').on('click', determineWinner)
       uniqueCount = 0
+      count = []
     })
     .catch(ui.createGameFailure)
 }
@@ -25,7 +27,7 @@ const onCreateGame = event => {
 // counter function counts numbers of clicks
 // Should be counting number of clicks on each individual grid only once
 let uniqueCount = 0
-const count = []
+let count = []
 const counter = () => {
   const target = event.target.id
   if (count.indexOf(target) === -1) {
@@ -47,12 +49,14 @@ const clickedGrid = (event) => {
   // populate x & o in the right indices
   const targetIndex = target - 1
   const targetId = target.replace(/click/gi, 'section')
+  // create the new id for the section we want to open.
   // console.log(targetId) is the same as console.log(event.target.id)
   // If count is odd, enter X, if count is even, enter Y
   console.log(uniqueCount)
   if (uniqueCount % 2 === 0) {
     $('#whoseTurn').html(`Player O's turn`)
     $('#' + targetId).html('X')
+    // gets the id of event element and sets it as the variable
     // use splice to insert x and o's at the indices of event.target.id
     cells.splice(targetIndex, 1, 'X')
     // turn off the button
