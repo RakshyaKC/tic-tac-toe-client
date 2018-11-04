@@ -18,6 +18,11 @@ const hideAuthedView = () => {
   x.style.display = 'none'
 }
 
+const hideGameboard = () => {
+  const x = document.getElementById('gameboard')
+  x.style.display = 'none'
+}
+
 const signUpSuccess = data => {
   console.log('signUpSuccess ran. Data is :', data)
   showAuthedView()
@@ -50,6 +55,7 @@ const signOutSuccess = () => {
   store.user.token = []
   showUnAuthedView()
   hideAuthedView()
+  hideGameboard()
 }
 const signOutFailure = error => {
   console.log('signOutFailure ran. Error is :', error)

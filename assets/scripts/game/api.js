@@ -27,8 +27,6 @@ const getGames = () => {
   })
 }
 
-
-
 const showAGame = ID => {
   // input is id. html text id is "show-a-game"
   return $.ajax({

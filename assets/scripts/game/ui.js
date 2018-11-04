@@ -1,6 +1,19 @@
 'user strict'
 const store = require('../store.js')
 
+const showGameboard = () => {
+  const x = document.getElementById('gameboard')
+  x.style.display = 'block'
+}
+
+const createGameSuccess = response => {
+  store.game = response.game
+  // put the game object in store
+  console.log('createGameSuccess ran. Game is: ', response.game)
+  console.log(response.game.cells)
+  showGameboard()
+}
+
 const getGamesSuccess = game => {
   console.log('getGamesSuccess ran. Game is: ', game)
 }
@@ -8,11 +21,7 @@ const getGamesSuccess = game => {
 const getGamesFailure = error => {
   console.log('getGamesFailure ran. Error is: ', error)
 }
-const createGameSuccess = response => {
-  store.game = response.game
-  // put the game object in store
-  console.log('createGameSuccess ran. Game is: ', response.game)
-}
+
 const createGameFailure = error => {
   console.log('createGameFailure ran. Error is: ', error)
 }

@@ -3,17 +3,22 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
 
-const game = store.game
 // function to start the game and start a new game with new id
 const onCreateGame = event => {
   event.preventDefault()
-  // document.getElementById('new-game').val('I was clicked')
   $('.col').html('')
   // emptying the value of all .col divs
-  $('.col').on('click', clickedGrid)
-  // calling function clickedGrid when the gameboard is clicked
   api.createGame()
-    .then(ui.createGameSuccess)
+    .then((response) => {
+      ui.createGameSuccess(response)
+      // turn elements in .col back on and set up eevnt listeners for the
+      // clicks with callback function clickedGrid
+      $('.col').on('click', clickedGrid)
+      // reinitialize uniqueCount. It was stuck at the winning uniqueCount
+      // without this part.
+      $('.col').on('click', counter)
+      uniqueCount = 0
+    })
     .catch(ui.createGameFailure)
 }
 
@@ -29,23 +34,22 @@ const counter = () => {
     // add to number of unique clicks on the grid
     uniqueCount++
   }
-//  console.log(uniqueCount)
+  console.log(uniqueCount)
 }
 // clickGrid populates the board with each click
-// create a null array of length 9. Tried creating an empty array but splice
-// doesn't populate x and o in the right indices if those indices don't already
-// exist within the array
-let cells = ['', '', '', '', '', '', '', '', '']
-const clickedGrid = event => {
+const clickedGrid = (event) => {
+  console.log(store.game)
+  const target = event.target.id
+  const cells = store.game.cells
   // event.preventDefault()
   // console.log(event.target.id)
-  const target = event.target.id
   // indices start at 0 so we need a constant that is target - 1 to
   // populate x & o in the right indices
   const targetIndex = target - 1
   const targetId = target.replace(/click/gi, 'section')
   // console.log(targetId) is the same as console.log(event.target.id)
   // If count is odd, enter X, if count is even, enter Y
+  console.log(uniqueCount)
   if (uniqueCount % 2 === 0) {
     $('#whoseTurn').html(`Player O's turn`)
     $('#' + targetId).html('X')
@@ -63,9 +67,6 @@ const clickedGrid = event => {
     console.log('MAYDAY MAYDAY')
   }
   console.log(cells)
-  // cells = store.game.cells
-  console.log(game)
-  // game.cells = cells
 }
 
 const xWins = () => {
@@ -86,6 +87,9 @@ const isTie = () => {
 }
 
 const determineWinner = () => {
+  const game = store.game
+  // console.log(game)
+  const cells = game.cells
   if (uniqueCount >= 5) {
     if ((cells[0] === 'X') && (cells[1] === 'X') && (cells[2] === 'X')) {
       xWins()
@@ -147,10 +151,10 @@ const onShowAGame = event => {
 // if num(x)> num(O), player {$X/O}'s turn
 
 module.exports = {
+  onCreateGame,
   counter,
   clickedGrid,
   determineWinner,
   onGetGames,
-  onCreateGame,
   onShowAGame
 }
