@@ -99,6 +99,8 @@ https://git.generalassemb.ly/ga-wdi-boston/game-project
 https://css-tricks.com/dont-overthink-flexbox-grids/
 https://stackoverflow.com/questions/17097947/jquery-using-a-variable-as-a-selector
 
+BUGS
+* Cannot play game after sign up because there's no token
 
 
 
