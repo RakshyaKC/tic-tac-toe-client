@@ -23,14 +23,28 @@ const hideGameboard = () => {
   x.style.display = 'none'
 }
 
+const resetFormsSignUp = () => {
+  const x = document.getElementById('sign-up')
+  x.reset()
+}
+
+const resetFormsSignIn = () => {
+  const x = document.getElementById('sign-in')
+  x.reset()
+}
+
+const resetFormChangePassword =
+
 const signUpSuccess = data => {
   console.log('signUpSuccess ran. Data is :', data)
   showAuthedView()
   hideUnAuthedView()
+  resetFormsSignUp()
 }
 
 const signUpFailure = error => {
   console.log('signUpFailure ran. Error is :', error)
+  resetFormsSignUp()
 }
 
 const signInSuccess = data => {
@@ -38,9 +52,11 @@ const signInSuccess = data => {
   console.log('signInSuccess ran. Data is :', data)
   showAuthedView()
   hideUnAuthedView()
+  resetFormsSignIn()
 }
 const signInFailure = error => {
   console.log('signInFailure ran. Error is :', error)
+  resetFormsSignIn()
 }
 
 const changePasswordSuccess = data => {

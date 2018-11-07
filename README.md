@@ -6,6 +6,12 @@ The SPA is integrated to API that allows change password and sign out.
 
 Game logic recognizes a tie and win. It keeps tally  of the game win/loss.
 
+# Wireframe
+https://docs.google.com/drawings/d/1mkOMtTo0fu8JDFUIXQL2jdfoaANPHTarb9ZFxLfTZik/edit
+
+# File structure
+https://git.generalassemb.ly/ga-wdi-boston/browser-template
+
 # User stories (Breakdown each story into an atomic level)
 *** User should be able to login or signup.
 *** If logged in, user should be able to change password.
@@ -22,16 +28,28 @@ Game logic recognizes a tie and win. It keeps tally  of the game win/loss.
 *** If logged in, user should be able to start a new game.
 * User can refer to tally bar to see number of X wins and number of O wins.
 
+# Game UI
+*** a simple 3X3 grid represents the game board.
+*** Hover color change
+*** Click to make X's appear.
+*** Click to make O's appear
+*** Buttons for sign in, sign up, sign out and change password.
+*** Buttons for creating new game, show all games and get a game.
+      Notes
+      Winning if below id's have the same string value (X or O)
+      horizontal [1,2,3; 4,5,6; 7,8,9;]
+      vertical [1,4,7; 2,5,8; 3,6,9]
+      diagonals [1,5,9; 3,5,7]
 
-Nice to have
-*** User will be able to see if its Player 1 or Player 2's turn.
-*** Bootstrap modals
+# Authorization
+*** Sign up, sign in, sign out and change password created through ajax calls.
+*** ui.js - handles user interface functionality like authorized view vs unauthorized view. It also handles success and failure messages.
+*** api.js - handles interactions with the API to sign up, sign in, sign out and change password.
+*** events.js - handles events created by clients
+*** app.js - listens for events created through button clicking
+*** store.js - handles the token info user generates upon signing in
+* use reset method to clear forms after success.
 
-# Wireframe
-https://docs.google.com/drawings/d/1mkOMtTo0fu8JDFUIXQL2jdfoaANPHTarb9ZFxLfTZik/edit
-
-# File structure
-https://git.generalassemb.ly/ga-wdi-boston/browser-template
 
 # Game engine
 *** App.js for sign up and sign in authorizations
@@ -48,34 +66,33 @@ https://git.generalassemb.ly/ga-wdi-boston/browser-template
 *** The player can click 'start a new game' to start another game.
 Still updating
 * game.cells of each unique game should update the server and store this data for future reference.
-* Unable to get a unique game with ID
+* Unable to get a unique game with ID from 'show a game'
 * Show games should give the result not in a console.log
 * remove console.logs
-* Create update API
+* Create Update API
 * Clear form fields after sign out
 
-# Notes
-Winning if below id's have the same string value (X or O)
-horizontal [1,2,3; 4,5,6; 7,8,9;]
-vertical [1,4,7; 2,5,8; 3,6,9]
-diagonals [1,5,9; 3,5,7]
+# Nice to have
+*** User will be able to see if its Player 1 or Player 2's turn.
+*** Bootstrap modals
 
-# Game UI
-*** a simple 3X3 grid represents the game board.
-*** Hover color change
-*** Click to make X's appear.
-*** Click to make O's appear
-*** Buttons for sign in, sign up, sign out and change password.
-*** Buttons for creating new game, show all games and get a game.
+# BUGS
+* Cannot start game, change password or sign out after sign up because
+  there's no token
+* Have to refresh page and sign in with the created login credentials for Token
+* The game board correlates with cells array in the function. The values of
+  each grid is saved temporarily but never saved in the server
+* 'Get games' gets all games created in console.log but the cells arrays are
+  all empty and over key is false for all game.
+* Show a game with ID gets the game but its cells array is empty and over key
+  is false.
+* Need to Create Update API
+* Form fields need to be emptied out after 'Sign out'
+* Console.logs need to be commented out or deleted.
+* Need to update README.MD once above changes are made.
+* Git merge, push and grunt deploy to update
+  https://rakshyakc.github.io/tic-tac-toe-client//
 
-
-# Authorization
-* Sign up, sign in, sign out and change password created through ajax calls.
-* ui.js - handles user interface functionality like authorized view vs unauthorized view. It also handles success and failure messages.
-* api.js - handles interactions with the API to sign up, sign in, sign out and change password.
-* events.js - handles events created by clients
-* app.js - listens for events created through button clicking
-* store.js - handles the token info user generates upon signing in
 
 # Project API
 https://git.generalassemb.ly/ga-wdi-boston/game-project-api
@@ -99,13 +116,14 @@ https://git.generalassemb.ly/ga-wdi-boston/game-project
 https://css-tricks.com/dont-overthink-flexbox-grids/
 https://stackoverflow.com/questions/17097947/jquery-using-a-variable-as-a-selector
 
-BUGS
-* Cannot play game after sign up because there's no token
-
-
 
 // Questions
 
-2. API questions - how should my game be stored in the API? How can I make sure a game creates a new ID?
-3. What does it mean to fetch all user's games? To show in console? To create an object with details of games played or is it supposed to be on screen?!
-4. Where do I create player-x? Or do I set it up somewhere after a sign in success?
+* API questions - how should my game be stored in the API? How can I make sure a game creates a new ID?
+* What does it mean to fetch all user's games? To show in console? To create an object with details of games played or is it supposed to be on screen?!
+* Where do I create player-x? Or do I set it up somewhere after a sign in success?
+
+# For resubmission
+  * Toggle for forms
+  * Border transparent
+  * Game history
