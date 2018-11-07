@@ -23,14 +23,31 @@ const hideGameboard = () => {
   x.style.display = 'none'
 }
 
-const signUpSuccess = data => {
-  console.log('signUpSuccess ran. Data is :', data)
-  showAuthedView()
-  hideUnAuthedView()
+const resetSignUp = () => {
+  const x = document.getElementById('sign-up')
+  x.reset()
 }
 
-const signUpFailure = error => {
-  console.log('signUpFailure ran. Error is :', error)
+const resetSignIn = () => {
+  const x = document.getElementById('sign-in')
+  x.reset()
+}
+
+const resetChangePassword = () => {
+  const x = document.getElementById('change-password')
+  x.reset()
+}
+
+const signUpSuccess = data => {
+  // console.log('signUpSuccess ran. Data is :', data)
+  showAuthedView()
+  hideUnAuthedView()
+  resetSignUp()
+}
+
+const signUpFailure = () => {
+  // console.log('signUpFailure ran. Error is :', error)
+  resetSignUp()
 }
 
 const signInSuccess = data => {
@@ -38,27 +55,31 @@ const signInSuccess = data => {
   console.log('signInSuccess ran. Data is :', data)
   showAuthedView()
   hideUnAuthedView()
+  resetSignIn()
 }
-const signInFailure = error => {
-  console.log('signInFailure ran. Error is :', error)
+const signInFailure = () => {
+  // console.log('signInFailure ran. Error is :', error)
+  resetSignIn()
 }
 
 const changePasswordSuccess = data => {
-  console.log('changePasswordSuccess ran. Data is :', data)
+  // console.log('changePasswordSuccess ran. Data is :', data)
+  resetChangePassword()
 }
-const changePasswordFailure = error => {
-  console.log('changePasswordFailure ran. Error is :', error)
+const changePasswordFailure = () => {
+  // console.log('changePasswordFailure ran. Error is :', error)
+  resetChangePassword()
 }
 
 const signOutSuccess = () => {
-  console.log('signOutSuccess ran.')
+  // console.log('signOutSuccess ran.')
   store.user.token = []
   showUnAuthedView()
   hideAuthedView()
   hideGameboard()
 }
-const signOutFailure = error => {
-  console.log('signOutFailure ran. Error is :', error)
+const signOutFailure = () => {
+  // console.log('signOutFailure ran. Error is :', error)
 }
 module.exports = {
   signUpSuccess,

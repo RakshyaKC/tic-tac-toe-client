@@ -36,15 +36,12 @@ const counter = () => {
     // add to number of unique clicks on the grid
     uniqueCount++
   }
-  console.log(uniqueCount)
+  // console.log(uniqueCount)
 }
 // clickGrid populates the board with each click
-const clickedGrid = (event) => {
-  console.log(store.game)
+const clickedGrid = event => {
   const target = event.target.id
   const cells = store.game.cells
-  // event.preventDefault()
-  // console.log(event.target.id)
   // indices start at 0 so we need a constant that is target - 1 to
   // populate x & o in the right indices
   const targetIndex = target - 1
@@ -52,7 +49,6 @@ const clickedGrid = (event) => {
   // create the new id for the section we want to open.
   // console.log(targetId) is the same as console.log(event.target.id)
   // If count is odd, enter X, if count is even, enter Y
-  console.log(uniqueCount)
   if (uniqueCount % 2 === 0) {
     $('#whoseTurn').html(`Player O's turn`)
     $('#' + targetId).html('X')
@@ -71,6 +67,24 @@ const clickedGrid = (event) => {
     console.log('MAYDAY MAYDAY')
   }
   console.log(cells)
+  console.log(event.target.id)
+  // saving the cells value for updating game
+  const data = {
+    'game': {
+      'cell': {
+        'index': targetIndex,
+        'value': cells[targetIndex]
+      },
+      'over': false
+    }
+  }
+  console.log(data)
+}
+
+const onUpdateAGame = event => {
+  api.updateAGame()
+    .then(ui.updateAGameSuccess)
+    .catch(ui.updateAGameFailure)
 }
 
 const xWins = () => {
@@ -160,5 +174,6 @@ module.exports = {
   clickedGrid,
   determineWinner,
   onGetGames,
-  onShowAGame
+  onShowAGame,
+  onUpdateAGame
 }
