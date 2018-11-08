@@ -46,13 +46,16 @@ https://git.generalassemb.ly/ga-wdi-boston/browser-template
 *** 8 winning conditions are looped through to check if either player has won.
 *** If uniqueCount = 9 and no winner has been determined, the game is a tie.
 *** The player can click 'start a new game' to start another game.
-Still updating
+*** Clear form fields after sign in, sign out, change password
+* Create update API
+
+
+Work left
 * game.cells of each unique game should update the server and store this data for future reference.
-* Unable to get a unique game with ID
+* Unable to get a unique game with ID through the show a game button
 * Show games should give the result not in a console.log
 * remove console.logs
-* Create update API
-* Clear form fields after sign out
+
 
 # Notes
 Winning if below id's have the same string value (X or O)
