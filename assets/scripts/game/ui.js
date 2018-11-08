@@ -13,6 +13,9 @@ const createGameSuccess = event => {
   console.log(event.game.id)
   showGameboard()
 }
+const createGameFailure = error => {
+  console.log('createGameFailure ran. Error is: ', error)
+}
 
 const getGamesSuccess = game => {
   console.log('getGamesSuccess ran. Game is: ', game)
@@ -22,9 +25,6 @@ const getGamesFailure = error => {
   console.log('getGamesFailure ran. Error is: ', error)
 }
 
-const createGameFailure = error => {
-  console.log('createGameFailure ran. Error is: ', error)
-}
 const showAGameSuccess = game => {
   console.log('showAGameSuccess ran. Game is: ', game)
 }

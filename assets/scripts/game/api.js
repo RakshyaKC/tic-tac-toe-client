@@ -29,36 +29,27 @@ const getGames = () => {
 
 const showAGame = () => {
   // input is id. html text id is "show-a-game"
-  const id = $('#show-game-id').val()
-  // console.log(typeof (id))
-  // id = parseInt(id)
+  let id = $('#show-game-id').val()
+  id = parseInt(id)
   return $.ajax({
-    url: config.apiUrl + `games/${id}`,
+    url: config.apiUrl + `games/` + id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: '{}'
+    }
   })
 }
 
-const updateAGame = event => {
+const updateAGame = (event, data) => {
+  console.log(data)
   return $.ajax({
-    url: config.apiUrl + `games/` + event.game.id,
+    url: config.apiUrl + `games/` + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     // update with game delta
-    data: {
-      'game': {
-        'cell': {
-          'index': 0,
-          'value': 'x'
-        },
-        'over': false
-      }
-    }
+    data
   })
 }
 
