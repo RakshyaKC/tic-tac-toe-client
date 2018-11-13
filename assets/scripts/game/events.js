@@ -37,9 +37,8 @@ const counter = () => {
     // add to number of unique clicks on the grid
     uniqueCount++
   }
-  // console.log(uniqueCount)
 }
-// clickedGrid populates the board with each click
+
 const clickedGrid = event => {
   const target = event.target.id
   const targetIndex = target - 1
@@ -48,9 +47,7 @@ const clickedGrid = event => {
   // populate x & o in the right indices
   const targetId = target.replace(/click/gi, 'section')
   // create the new id for the section we want to open.
-  // console.log(targetId) is the same as console.log(event.target.id)
   // If count is odd, enter X, if count is even, enter Y
-
   if (uniqueCount % 2 === 0) {
     $('#whoseTurn').html(`Player o's turn`)
     $('#' + targetId).html('x')
@@ -77,7 +74,6 @@ const clickedGrid = event => {
       'over': false
     }
   }
-  // const onUpdateAGame = (event, data) => {
   api.updateAGame(event, data)
     .then(ui.updateAGameSuccess)
     .catch(ui.updateAGameFailure)
@@ -87,17 +83,20 @@ const xWins = () => {
   $('#winOrTie').html('Player X wins!')
   $('#userNotification').modal('show')
   $('.col').off('click')
+  $('#whoseTurn').html(` `)
 }
 const oWins = () => {
   $('#winOrTie').html('Player O wins!')
   $('#userNotification').modal('show')
   $('.col').off('click')
+  $('#whoseTurn').html(` `)
 }
 
 const isTie = () => {
   $('#winOrTie').html('This game is a tie. Play again!')
   $('#userNotification').modal('show')
   $('.col').off('click')
+  $('#whoseTurn').html(` `)
 }
 
 const determineWinner = () => {
@@ -156,11 +155,9 @@ const onShowAGame = event => {
 }
 
 // TODO:
-// *for API a function to store the div values in an array called "cells" within
-// "game" object.
-// Nice to have
-// <h1> element with ID "whoseTurn" updates with whose turn it is. Function would find the number of x and o.
-// if num(x)> num(O), player {$X/O}'s turn
+// display results of past games or a speciic game
+// remove all console.log
+// update game as over: true if the game is over
 
 module.exports = {
   onCreateGame,

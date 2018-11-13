@@ -10,7 +10,6 @@ const createGameSuccess = event => {
   store.game = event.game
   // put the game object in store
   console.log('createGameSuccess ran. Game is: ', event.game)
-  console.log(event.game.id)
   showGameboard()
 }
 const createGameFailure = error => {
@@ -18,7 +17,9 @@ const createGameFailure = error => {
 }
 
 const getGamesSuccess = game => {
-  console.log('getGamesSuccess ran. Game is: ', game)
+  // console.log('getGamesSuccess ran. Game is: ', game)
+  $('#get-all-the-games').html('All the games are here', game)
+  $('#get-all-games').modal('show')
 }
 
 const getGamesFailure = error => {
@@ -26,7 +27,18 @@ const getGamesFailure = error => {
 }
 
 const showAGameSuccess = game => {
-  console.log('showAGameSuccess ran. Game is: ', game)
+  $('#show-this-game').html('Here is how this game went')
+  $('#cell1').html('')
+  $('#cell2').html('')
+  $('#cell3').html('')
+  $('#cell4').html('')
+  $('#cell5').html('')
+  $('#cell6').html('')
+  $('#cell7').html('')
+  $('#cell8').html('')
+  $('#cell9').html('')
+  $('#show-game').modal('show')
+  // console.log('showAGameSuccess ran. Game is: ', game)
 }
 
 const showAGameFailure = error => {

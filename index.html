@@ -79,14 +79,51 @@
       <form id="get-games">
         <button type="button" class="btn btn-info">Get games</button>
       </form>
+      <div class="modal fade" id="get-all-games" role="dialog">
+          <div class="modal-dialog">
+              <div class="modal-body">
+                <h2 id="get-all-the-games"></h2>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
 
       <form>
         <input id="show-game-id" type="text" name="game[id]" placeholder="Game ID">
         <button id="show-a-game" type="button" class="btn btn-info">Show a game</button>
       </form>
+      <div class="modal fade" id="show-game" role="dialog">
+          <div class="modal-dialog">
+              <div class="modal-body">
+                <h2 id="show-this-game"></h2>
+                <table id="this-game-table">
+                  <tr>
+                    <td id="cell1" class="this-game-cells">1</td>
+                    <td id="cell2" class="this-game-cells">2</td>
+                    <td id="cell3" class="this-game-cells">3</td>
+                  </tr>
+                  <tr>
+                    <td id="cell4" class="this-game-cells">4</td>
+                    <td id="cell5" class="this-game-cells">5</td>
+                    <td id="cell6" class="this-game-cells">6</td>
+                  </tr>
+                  <tr>
+                    <td id="cell7" class="this-game-cells">7</td>
+                    <td id="cell8" class="this-game-cells">8</td>
+                    <td id="cell9" class="this-game-cells">9</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
     </nav>
   </div>
-  <!-- Modal -->
+  <!-- Modals -->
   <div class="modal fade" id="userNotification" role="dialog">
       <div class="modal-dialog">
           <div class="modal-body">
@@ -95,7 +132,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
-        </div>
-    </div>
+      </div>
+  </div>
 </body>
 </html>

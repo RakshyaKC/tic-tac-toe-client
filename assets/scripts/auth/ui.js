@@ -39,7 +39,7 @@ const resetChangePassword = () => {
 }
 
 const signUpSuccess = data => {
-  // console.log('signUpSuccess ran. Data is :', data)
+  console.log('signUpSuccess ran. Data is :', data)
   showAuthedView()
   hideUnAuthedView()
   resetSignUp()
