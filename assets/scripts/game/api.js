@@ -28,22 +28,34 @@ const getGames = () => {
 }
 
 const showAGame = () => {
-  const id = $('#show-game-id').val()
-  console.log(id)
   // input is id. html text id is "show-a-game"
+  let id = $('#show-game-id').val()
+  id = parseInt(id)
   return $.ajax({
-    url: config.apiUrl + `games/${id}`,
-    //
+    url: config.apiUrl + `games/` + id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: '{}'
-    // would it help to set data.id =  .show-a-game.html()
+    }
   })
 }
+
+const updateAGame = (event, data) => {
+  console.log(data)
+  return $.ajax({
+    url: config.apiUrl + `games/` + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    // update with game delta
+    data
+  })
+}
+
 module.exports = {
   getGames,
   createGame,
-  showAGame
+  showAGame,
+  updateAGame
 }

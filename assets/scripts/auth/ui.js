@@ -23,28 +23,33 @@ const hideGameboard = () => {
   x.style.display = 'none'
 }
 
-const resetFormsSignUp = () => {
+
+const resetSignUp = () => {
   const x = document.getElementById('sign-up')
   x.reset()
 }
 
-const resetFormsSignIn = () => {
+
+const resetSignIn = () => {
   const x = document.getElementById('sign-in')
   x.reset()
 }
 
-const resetFormChangePassword =
+const resetChangePassword = () => {
+  const x = document.getElementById('change-password')
+  x.reset()
+}
 
 const signUpSuccess = data => {
   console.log('signUpSuccess ran. Data is :', data)
   showAuthedView()
   hideUnAuthedView()
-  resetFormsSignUp()
+  resetSignUp()
 }
 
 const signUpFailure = error => {
   console.log('signUpFailure ran. Error is :', error)
-  resetFormsSignUp()
+  resetSignUp()
 }
 
 const signInSuccess = data => {
@@ -52,29 +57,31 @@ const signInSuccess = data => {
   console.log('signInSuccess ran. Data is :', data)
   showAuthedView()
   hideUnAuthedView()
-  resetFormsSignIn()
+  resetSignIn()
 }
 const signInFailure = error => {
   console.log('signInFailure ran. Error is :', error)
-  resetFormsSignIn()
+  resetSignIn()
 }
 
 const changePasswordSuccess = data => {
-  console.log('changePasswordSuccess ran. Data is :', data)
+  // console.log('changePasswordSuccess ran. Data is :', data)
+  resetChangePassword()
 }
-const changePasswordFailure = error => {
-  console.log('changePasswordFailure ran. Error is :', error)
+const changePasswordFailure = () => {
+  // console.log('changePasswordFailure ran. Error is :', error)
+  resetChangePassword()
 }
 
 const signOutSuccess = () => {
-  console.log('signOutSuccess ran.')
+  // console.log('signOutSuccess ran.')
   store.user.token = []
   showUnAuthedView()
   hideAuthedView()
   hideGameboard()
 }
-const signOutFailure = error => {
-  console.log('signOutFailure ran. Error is :', error)
+const signOutFailure = () => {
+  // console.log('signOutFailure ran. Error is :', error)
 }
 module.exports = {
   signUpSuccess,
