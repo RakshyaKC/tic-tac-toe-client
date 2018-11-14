@@ -39,35 +39,39 @@ const resetChangePassword = () => {
 }
 
 const signUpSuccess = data => {
-  console.log('signUpSuccess ran. Data is :', data)
+  $('#unAuthedMessage').html(`Sign up was successful. Sign in to play!`)
   showAuthedView()
   hideUnAuthedView()
   resetSignUp()
 }
 
-const signUpFailure = error => {
-  console.log('signUpFailure ran. Error is :', error)
+const signUpFailure = () => {
+  $('#unAuthedMessage').html(`Sorry, sign up was unsuccessful. Try again.`)
+  // console.log('signUpFailure ran. Error is :', error)
   resetSignUp()
 }
 
 const signInSuccess = data => {
   store.user = data.user
-  console.log('signInSuccess ran. Data is :', data)
+  // console.log('signInSuccess ran. Data is :', data)
   showAuthedView()
   hideUnAuthedView()
   resetSignIn()
 }
-const signInFailure = error => {
-  console.log('signInFailure ran. Error is :', error)
+const signInFailure = () => {
+  $('#unAuthedMessage').html(`Sorry, sign in was unsuccessful. Try again.`)
+  // console.log('signInFailure ran. Error is :', error)
   resetSignIn()
 }
 
 const changePasswordSuccess = data => {
   // console.log('changePasswordSuccess ran. Data is :', data)
+  $('#authedMessage').html(`Congratulations! Password was changed successfully!`)
   resetChangePassword()
 }
 const changePasswordFailure = () => {
   // console.log('changePasswordFailure ran. Error is :', error)
+  $('#authedMessage').html(`Sorry password couldn't be changed. Try again!`)
   resetChangePassword()
 }
 
@@ -79,6 +83,7 @@ const signOutSuccess = () => {
   hideGameboard()
 }
 const signOutFailure = () => {
+  $('#authedMessage').html(`Sorry, sign out was unsuccessful. Try again.`)
   // console.log('signOutFailure ran. Error is :', error)
 }
 module.exports = {
