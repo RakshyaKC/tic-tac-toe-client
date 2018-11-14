@@ -45,8 +45,8 @@ const signUpSuccess = data => {
   resetSignUp()
 }
 
-const signUpFailure = () => {
-  // console.log('signUpFailure ran. Error is :', error)
+const signUpFailure = error => {
+  console.log('signUpFailure ran. Error is :', error)
   resetSignUp()
 }
 
@@ -57,8 +57,8 @@ const signInSuccess = data => {
   hideUnAuthedView()
   resetSignIn()
 }
-const signInFailure = () => {
-  // console.log('signInFailure ran. Error is :', error)
+const signInFailure = error => {
+  console.log('signInFailure ran. Error is :', error)
   resetSignIn()
 }
 
