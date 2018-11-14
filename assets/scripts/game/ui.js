@@ -9,7 +9,7 @@ const showGameboard = () => {
 const createGameSuccess = event => {
   store.game = event.game
   // put the game object in store
-  console.log('createGameSuccess ran. Game is: ', event.game)
+  $('#gameID').html(`Game ID: ${event.game.id}`)
   showGameboard()
 }
 const createGameFailure = error => {
@@ -18,7 +18,7 @@ const createGameFailure = error => {
 
 const getGamesSuccess = game => {
   console.log('getGamesSuccess ran. Game is: ', game)
-  $('#get-all-the-games').html(`You have played ${game.games.length} games. Enter a specific ID to see that game.`)
+  $('#get-all-the-games').html(`You have played ${game.games.length} games.`)
   $('#get-all-games').modal('show')
 }
 

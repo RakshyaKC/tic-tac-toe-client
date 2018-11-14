@@ -15,7 +15,7 @@
 
   <!-- before login -->
   <div id="unAuthedView">
-    <form id="sign-up" class="border">
+    <form id="sign-up" class="forms">
       <fieldset>
         <legend> Sign up here to play tic-tac-toe</legend>
         <input name="credentials[email]" type="text" placeholder="Email address"><br>
@@ -25,7 +25,7 @@
       </fieldset>
     </form>
 
-    <form id="sign-in" class="border">
+    <form id="sign-in" class="forms">
       <fieldset>
         <legend> Sign in here if you have an account</legend>
         <input name="credentials[email]" type="text" placeholder="Email address"><br>
@@ -37,27 +37,28 @@
 
   <!-- once logged in-->
   <div id="authedView">
-    <h1>Let's play tic-tac-toe!</h1>
-    <form id="change-password" class="border">
-        <fieldset>
-          <legend> Change your password </legend>
-          <input type="password" name="passwords[old]" placeholder="Old password">
-          <input type="password" name="passwords[new]" placeholder="New password">
-          <button class="btn btn-info">Change Password</button>
-       </fieldset>
-    </form>
+    <nav>
+      <form id="sign-out" class="forms">
+        <button class="btn btn-info">Sign Out</button>
+      </form>
 
-    <form id="sign-out" class="border">
-      <button class="btn btn-info">Sign Out</button>
-    </form>
-
+      <form id="change-password" class="forms">
+          <fieldset>
+            <input type="password" name="passwords[old]" placeholder="Old password">
+            <input type="password" name="passwords[new]" placeholder="New password">
+            <button class="btn btn-info">Change Password</button>
+         </fieldset>
+      </form>
+    </nav>
+    <h3>Are you ready for a game of Tic Tac Toe? </h3>
     <form id="create-game">
       <button type="button" class="btn btn-info">Start a new game</button>
     </form>
   </div>
 
   <div id="gameboard">
-    <h1 id ="whoseTurn">Player X's turn</h1>
+    <h6 id ="gameID">Game ID: </h6>
+    <h6 id ="whoseTurn">Player X's turn</h6>
 
     <div class="flex-grid">
       <div class="col" id="1"></div>

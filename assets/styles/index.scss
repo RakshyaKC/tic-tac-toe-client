@@ -10,8 +10,10 @@ body {
   background-color: $background-color;
 }
 
-.border {
-  padding: 2em;
+.forms {
+  display: inline-flex;
+  justify-content: space-around;
+  padding: 1em;
 }
 
 #authedView {
@@ -26,7 +28,12 @@ body {
   display: none;
 }
 
-h1 {
+h3 {
+  clear: both;
+  text-align: center;
+}
+
+h6 {
   clear: both;
   text-align: center;
 }
@@ -43,9 +50,11 @@ h1 {
 .col {
   align-content: center;
   border: 1px solid $border-color;
-  font-size: 20px;
+  display: flex;
+  font-size: 40px;
   font-weight: 800;
-  padding: 40px;
+  justify-content: center;
+  padding: 20px;
 }
 
 .col:hover {
@@ -61,7 +70,7 @@ h1 {
 nav {
   display: flex;
   justify-content: space-around;
-  padding: 2em;
+  padding: 1em;
 }
 
 .modal-dialog {
@@ -74,7 +83,8 @@ nav {
 }
 
 #this-game-table {
-  align-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .this-game-cells {
