@@ -23,12 +23,10 @@ const hideGameboard = () => {
   x.style.display = 'none'
 }
 
-
 const resetSignUp = () => {
   const x = document.getElementById('sign-up')
   x.reset()
 }
-
 
 const resetSignIn = () => {
   const x = document.getElementById('sign-in')
