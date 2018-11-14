@@ -17,8 +17,8 @@ const createGameFailure = error => {
 }
 
 const getGamesSuccess = game => {
-  // console.log('getGamesSuccess ran. Game is: ', game)
-  $('#get-all-the-games').html('All the games are here', game)
+  console.log('getGamesSuccess ran. Game is: ', game)
+  $('#get-all-the-games').html(`You have played ${game.games.length} games. Enter a specific ID to see that game.`)
   $('#get-all-games').modal('show')
 }
 
@@ -27,20 +27,19 @@ const getGamesFailure = error => {
 }
 
 const showAGameSuccess = game => {
-  $('#show-this-game').html('Here is how this game went')
-  const cells = store.game.cells
+  // console.log('showAGameSuccess ran. Game is: ', game)
+  const cells = game.game.cells
   $('#cell1').html(cells[0])
   $('#cell2').html(cells[1])
-  $('#cell3').val(cells[2])
-  $('#cell4').val(cells[3])
-  $('#cell5').val(cells[4])
-  $('#cell6').val(cells[5])
-  $('#cell7').val(cells[6])
-  $('#cell8').val(cells[7])
-  $('#cell9').val(cells[8])
+  $('#cell3').html(cells[2])
+  $('#cell4').html(cells[3])
+  $('#cell5').html(cells[4])
+  $('#cell6').html(cells[5])
+  $('#cell7').html(cells[6])
+  $('#cell8').html(cells[7])
+  $('#cell9').html(cells[8])
+  $('#show-this-game').html('Here is how this game went')
   $('#show-game').modal('show')
-  console.log('showAGameSuccess ran. Game is: ', game)
-  console.log(cells.length)
 }
 
 const showAGameFailure = error => {
