@@ -41,7 +41,7 @@ const showAGame = () => {
 }
 
 const updateAGame = (event, data) => {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: config.apiUrl + `games/` + store.game.id,
     method: 'PATCH',

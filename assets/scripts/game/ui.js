@@ -12,8 +12,10 @@ const createGameSuccess = event => {
   $('#gameID').html(`Game ID: ${event.game.id}`)
   showGameboard()
 }
-const createGameFailure = error => {
-  console.log('createGameFailure ran. Error is: ', error)
+const createGameFailure = () => {
+  $('#get-all-the-games').html(`Sorry a game could not be created. Try again.`)
+  $('#show-game').modal('show')
+  // console.log('createGameFailure ran. Error is: ', error)
 }
 
 const getGamesSuccess = game => {
@@ -22,8 +24,10 @@ const getGamesSuccess = game => {
   $('#get-all-games').modal('show')
 }
 
-const getGamesFailure = error => {
-  console.log('getGamesFailure ran. Error is: ', error)
+const getGamesFailure = () => {
+  $('#get-all-the-games').html(`Sorry I don't know how many games you have played.`)
+  $('#get-all-games').modal('show')
+  // console.log('getGamesFailure ran. Error is: ', error)
 }
 
 const showAGameSuccess = game => {
@@ -43,15 +47,17 @@ const showAGameSuccess = game => {
 }
 
 const showAGameFailure = error => {
-  console.log('showAGameFailure ran. Error is: ', error)
+  $('#show-this-game').html(`This game cannot be loaded. Error is "${error.statusText}"`)
+  $('#show-game').modal('show')
+  // console.log('showAGameFailure ran. Error is: ', error)
 }
 
 const updateAGameSuccess = game => {
-  console.log('updateAGameSuccess ran. Game is: ', game)
+//  console.log('updateAGameSuccess ran. Game is: ', game)
 }
 
-const updateAGameFailure = error => {
-  console.log('updateAGameFailure ran. Error is: ', error)
+const updateAGameFailure = () => {
+//  console.log('updateAGameFailure ran. Error is: ', error)
 }
 
 module.exports = {

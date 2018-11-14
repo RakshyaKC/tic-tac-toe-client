@@ -63,7 +63,7 @@ const clickedGrid = event => {
     // https://stackoverflow.com/questions/17097947/jquery-using-a-variable-as-a-selector
     $('#' + targetId).off('click')
   }
-  console.log(cells)
+  // console.log(cells)
   // saving the cells value for updating game
   const data = {
     'game': {
