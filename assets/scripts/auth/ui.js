@@ -39,9 +39,8 @@ const resetChangePassword = () => {
 }
 
 const signUpSuccess = data => {
-  $('#unAuthedMessage').html(`Sign up was successful. Sign in to play!`)
-  showAuthedView()
-  hideUnAuthedView()
+  // needs to redirect to sign in
+  $('#unAuthedMessage').html(`Sign up was successful. Sign in to start playing!`)
   resetSignUp()
 }
 
@@ -56,6 +55,7 @@ const signInSuccess = data => {
   // console.log('signInSuccess ran. Data is :', data)
   showAuthedView()
   hideUnAuthedView()
+  $('#unAuthedMessage').html('')
   resetSignIn()
 }
 const signInFailure = () => {
