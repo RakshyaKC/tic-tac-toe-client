@@ -10,6 +10,6 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
   // Game engine logic below here
   $('#get-games').on('click', gameEvents.onGetGames)
-  $('#create-game').on('click', gameEvents.onCreateGame)
+  $('#create-a-game').on('click', gameEvents.onCreateGame)
   $('#show-a-game').on('click', gameEvents.onShowAGame)
 })
