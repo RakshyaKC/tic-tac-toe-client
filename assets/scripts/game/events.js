@@ -154,11 +154,6 @@ const onShowAGame = event => {
     .catch(ui.showAGameFailure)
 }
 
-// TODO:
-// display results of past games or a speciic game
-// remove all console.log
-// update game as over: true if the game is over
-
 module.exports = {
   onCreateGame,
   counter,

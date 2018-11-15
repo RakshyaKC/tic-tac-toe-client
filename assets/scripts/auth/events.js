@@ -4,7 +4,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 
 const onSignUp = event => {
-  console.log('About to prevent default refresh')
+  // console.log('About to prevent default refresh')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signUp(data)

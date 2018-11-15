@@ -22,8 +22,14 @@ const createGameFailure = () => {
 
 const getGamesSuccess = game => {
   $('#authedMessage').html('')
-  // console.log('getGamesSuccess ran. Game is: ', game)
+  console.log('getGamesSuccess ran. Game is: ', game)
+  const gamesIDs = []
+  for (let i = 0; i < game.games.length; i++) {
+    const gameID = game.games[i].id
+    gamesIDs.push(gameID)
+  }
   $('#get-all-the-games').html(`You have played ${game.games.length} games.`)
+  $('#all-games-IDs').html(`${gamesIDs}`)
   $('#get-all-games').modal('show')
 }
 
@@ -53,7 +59,7 @@ const showAGameSuccess = game => {
   $('#cell8').html(cells[7])
   $('#cell9').html(cells[8])
   $('#this-game-table').show()
-  $('#show-this-game').html('Here is how this game went')
+  $('#show-this-game').html(`Here is how game ${game.game.id} went`)
   $('#show-game').modal('show')
   resetShowAGame()
 }

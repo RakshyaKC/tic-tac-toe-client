@@ -16,7 +16,7 @@ const createGame = () => {
 }
 
 const getGames = () => {
-  console.log(store.user)
+//  console.log(store.user)
   return $.ajax({
     url: config.apiUrl + `games`,
     method: 'GET',
