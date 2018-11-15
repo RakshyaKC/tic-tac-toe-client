@@ -55,7 +55,6 @@ const showAGameSuccess = game => {
   $('#this-game-table').show()
   $('#show-this-game').html('Here is how this game went')
   $('#show-game').modal('show')
-  $('#show-game-form').reset()
   resetShowAGame()
 }
 
