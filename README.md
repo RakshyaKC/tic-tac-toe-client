@@ -1,4 +1,7 @@
 # Scope
+
+https://rakshyakc.github.io/tic-tac-toe-client/
+
 A single page application that has a tic-tac-toc game board. It allows player 1
 and player 2 to play while only one of them is signed in.
 
@@ -8,12 +11,16 @@ The page is designed using HTML, SCSS and Bootstrap.
 
 Game logic is created using JavaScript and jQuery.
 
-
 # Wireframe
 https://docs.google.com/drawings/d/1mkOMtTo0fu8JDFUIXQL2jdfoaANPHTarb9ZFxLfTZik/edit
 
 # File structure
 https://git.generalassemb.ly/ga-wdi-boston/browser-template
+
+# Development Story
+The games' capabilities were broken down into single features written as user stories below. Two main parts of the API integration - authorization and game- were carefully and separately worked on to create clean code. The game engine itself was informed by the server's data storage structure. Event handlers were used to create a seamless user experience. 
+
+Design was kept simple as an ode to the simplicity of the tic-tac-toe game itself. The colors and modals used are soft in colors and pleasing in effect to communicate the carefree nature of this game. 
 
 # User stories (Breakdown each story into an atomic level)
 * User should be able to login or signup.
