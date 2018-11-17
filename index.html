@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic tac toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<body>
+
+  <!-- before login -->
+  <div id="unAuthedView">
+    <form id="sign-up" class="forms">
+      <fieldset>
+        <legend> Sign up here to play tic-tac-toe</legend>
+        <input name="credentials[email]" type="text" placeholder="Email address"><br>
+        <input name="credentials[password]" type="password" placeholder="Password"><br>
+        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password"><br>
+        <button class="btn btn-info">Sign Up</button>
+      </fieldset>
+    </form>
+
+    <form id="sign-in" class="forms">
+      <fieldset>
+        <legend> Sign in here if you have an account</legend>
+        <input name="credentials[email]" type="text" placeholder="Email address"><br>
+        <input name="credentials[password]" type="password" placeholder="Password"><br>
+        <button class="btn btn-info">Sign In</button>
+      </fieldset>
+    </form>
+  </div>
+
+  <h6 id="unAuthedMessage"></h6>
+
+  <!-- once logged in-->
+  <div id="authedView">
+    <nav>
+      <form id="sign-out" class="forms">
+        <button class="btn btn-info">Sign Out</button>
+      </form>
+
+      <form id="change-password" class="forms">
+          <fieldset>
+            <input type="password" name="passwords[old]" placeholder="Old password">
+            <input type="password" name="passwords[new]" placeholder="New password">
+            <button class="btn btn-info">Change Password</button>
+         </fieldset>
+      </form>
+    </nav>
+    <h6 id="authedMessage"></h6>
+    <h3>Are you ready for a game of Tic Tac Toe? </h3>
+    <form id="create-game">
+      <button type="button" id="create-a-game" class="btn btn-info">Start a new game</button>
+    </form>
+  </div>
+
+
+  <div id="gameboard">
+    <h6 id ="gameID">Game ID: </h6>
+    <h6 id ="whoseTurn">Player X's turn</h6>
+
+    <div class="flex-grid">
+      <div class="col" id="1"></div>
+      <div class="col" id="2"></div>
+      <div class="col" id="3"></div>
+    </div>
+    <div class="flex-grid">
+      <div class="col" id="4"></div>
+      <div class="col" id="5"></div>
+      <div class="col" id="6"></div>
+    </div>
+    <div class="flex-grid">
+      <div class="col" id="7"></div>
+      <div class="col" id="8"></div>
+      <div class="col" id="9"></div>
+    </div>
+
+    <nav>
+      <form id="get-games">
+        <button type="button" class="btn btn-info">Get games</button>
+      </form>
+      <div class="modal fade" id="get-all-games" role="dialog">
+          <div class="modal-dialog">
+              <div class="modal-body">
+                <h3 id="get-all-the-games"></h3>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+
+      <form id="show-game-form">
+        <input id="show-game-id" type="text" name="game[id]" placeholder="Game ID">
+        <button id="show-a-game" type="button" class="btn btn-info">Show a game</button>
+      </form>
+      <div class="modal fade" id="show-game" role="dialog">
+          <div class="modal-dialog">
+              <div class="modal-body">
+                <h3 id="show-this-game"></h3>
+                <table id="this-game-table">
+                  <tr>
+                    <td id="cell1" class="this-game-cells"></td>
+                    <td id="cell2" class="this-game-cells"></td>
+                    <td id="cell3" class="this-game-cells"></td>
+                  </tr>
+                  <tr>
+                    <td id="cell4" class="this-game-cells"></td>
+                    <td id="cell5" class="this-game-cells"></td>
+                    <td id="cell6" class="this-game-cells"></td>
+                  </tr>
+                  <tr>
+                    <td id="cell7" class="this-game-cells"></td>
+                    <td id="cell8" class="this-game-cells"></td>
+                    <td id="cell9" class="this-game-cells"></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+    </nav>
+    <div id="games-id-display">
+      <p id="all-games-IDs"></p>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal fade" id="userNotification" role="dialog">
+      <div class="modal-dialog">
+          <div class="modal-body">
+            <h2 id="winOrTie"></h2>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
