@@ -1,11 +1,12 @@
 # Scope
-Create a single page application that has a tic-tac-toc game board. It allows player 1
+A single page application that has a tic-tac-toc game board. It allows player 1
 and player 2 to play while only one of them is signed in.
+
+The page is designed using HTML, SCSS and Bootstrap.
 
 The SPA is integrated to API that allows sign up, sign in, change password and sign out. It also allows for creating new game, storing game details, reading number of games played & retrieving how a specific game went.
 
-Game logic recognizes a tie and win.
-
+Game logic is created using JavaScript and jQuery.
 
 
 # Wireframe
