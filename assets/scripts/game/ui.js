@@ -22,15 +22,16 @@ const createGameFailure = () => {
 
 const getGamesSuccess = game => {
   $('#authedMessage').html('')
-  console.log('getGamesSuccess ran. Game is: ', game)
-  const gamesIDs = []
+  // console.log('getGamesSuccess ran. Game is: ', game)
+  let gamesIDs = []
   for (let i = 0; i < game.games.length; i++) {
     const gameID = game.games[i].id
     gamesIDs.push(gameID)
   }
-  $('#get-all-the-games').html(`You have played ${game.games.length} games.`)
-  $('#all-games-IDs').html(`${gamesIDs}`)
+  gamesIDs = gamesIDs.join(', ')
+  $('#get-all-the-games').html(`You have played ${game.games.length} games. See all their IDs below.`)
   $('#get-all-games').modal('show')
+  $('#all-games-IDs').html(`Game IDs: ${gamesIDs}`)
 }
 
 const getGamesFailure = () => {

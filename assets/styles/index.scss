@@ -88,9 +88,18 @@ nav {
 }
 
 .this-game-cells {
-  border: 1px solid $border-color;
   align-content: center;
+  border: 1px solid $border-color;
   font-size: 20px;
   font-weight: 800;
   padding: 10px;
+}
+
+#games-id-display {
+  align-content: center;
+  display: flex;
+  margin: auto;
+  overflow-wrap: break-word;
+  padding: 2em;
+  width: 80%;
 }

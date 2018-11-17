@@ -57,6 +57,7 @@ const signInSuccess = data => {
   hideUnAuthedView()
   $('#unAuthedMessage').html('')
   resetSignIn()
+  $('#all-games-IDs').html(` `)
 }
 const signInFailure = () => {
   $('#unAuthedMessage').html(`Sorry, sign in was unsuccessful. Try again.`)
@@ -81,6 +82,7 @@ const signOutSuccess = () => {
   showUnAuthedView()
   hideAuthedView()
   hideGameboard()
+  $('#all-games-IDs').html(` `)
 }
 const signOutFailure = () => {
   $('#authedMessage').html(`Sorry, sign out was unsuccessful. Try again.`)
